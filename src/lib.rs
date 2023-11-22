@@ -21,11 +21,11 @@ fn make_combodate_table(t: DateTime<Local>) -> String {
         ("Unix", &unix_time(t)[..]),
         (
             "ISO-8601 Gregorian (Local)",
-            &format!("{}", t.to_rfc3339_opts(SecondsFormat::Secs, false))[..],
+            &(t.to_rfc3339_opts(SecondsFormat::Secs, false)),
         ),
         (
             "ISO-8601 Gregorian (UTC)",
-            &format!("{}", tu.to_rfc3339_opts(SecondsFormat::Secs, false))[..],
+            &(tu.to_rfc3339_opts(SecondsFormat::Secs, false)),
         ),
         ("ISO-8601 Week-date (Local)", &isoweekday(t)[..]),
         ("ISO-8601 Week-date (UTC)", &isoweekday(tu)[..]),
@@ -86,7 +86,7 @@ fn reverse_str(x: &str) -> String {
     let mut get_from = String::from(x);
     let mut out_str = String::from("");
     let mut n = get_from.pop();
-    while n != None {
+    while n.is_some() {
         out_str.push(n.unwrap());
         n = get_from.pop();
     }
