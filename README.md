@@ -1,5 +1,7 @@
 # Combodate
 
+**Moved to Codeberg**: https://codeberg.org/christopherphan/combodate_rust
+
 A command-line utility written in Rust to show the current date and time in
 various formats.
 
